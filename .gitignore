@@ -83,8 +83,10 @@ target/
 __pycache__/
 local_settings.py
 .kolo
-.env
+*.env
 db.sqlite3
 *.scss
 *.css.map
 .vscode
+.venv
+migrations/
