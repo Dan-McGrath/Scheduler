@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<h2>Employees</h2>
+<p><a href="{% url 'employee-create' %}">New Employee</a></p>
+<table id="employee-table">
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Paid Time Off Available</th>
+        <th>Sick Days Available</th>
+        <th>Hired date</th>
+    </tr>
+    <tr>
+    {% for employee in object.all %}
+        <td>{{ employee }}</td>
+        <td>{{ employee.phone_number }}</td>
+        <td>{{ employee.paid_time_off }}</td>
+        <td>{{ employee.sick_days }}</td>
+        <td>{{ employee.hire_date }}</td>
+        <td><a href="{% url 'employee-update' employee.pk %}">Edit</a></td>
+        <td><a href="{% url 'employee-delete' employee.pk %}">Delete</a></td>
+    {% endfor %}
+    </tr>
+{% endblock %}
+
